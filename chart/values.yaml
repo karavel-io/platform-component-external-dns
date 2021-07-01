@@ -1,0 +1,17 @@
+domainFilter: ""
+
+provider: ""
+
+cloudflare:
+  proxied: false
+  zoneId: ""
+  secret:
+    backend: secretsManager
+    key: ""
+    property: ""
+
+route53:
+  zoneType: ""
+  zoneId: ""
+  eksRole: ""
+  iamRole: ""
