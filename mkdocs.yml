@@ -1,4 +1,4 @@
-site_name: External DNS Component
+site_name: components/external-dns
 site_url: https://docs.karavel.io/components/external-dns
 repo_name: projectkaravel/platform-component-external-dns
 repo_url: https://github.com/projectkaravel/platform-component-external-dns
