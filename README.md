@@ -18,4 +18,4 @@ accordingly, taking care of creating, updating or deleting records as needed.
 The External DNS Component is licensed under the [Apache 2.0 license](LICENSE).
 
 The Karavel Container Platform is licensed under
-the [Apache 2.0 license](https://github.com/projectkaravel/platform/blob/main/LICENSE).
+the [Apache 2.0 license](https://github.com/karavel-io/platform/blob/main/LICENSE).

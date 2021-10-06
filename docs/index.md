@@ -27,7 +27,7 @@ Support for additional services can be added based on the controller's capabilit
 The External DNS Component is licensed under the [Apache 2.0 license](LICENSE).
 
 The Karavel Container Platform is licensed under
-the [Apache 2.0 license](https://github.com/projectkaravel/platform/blob/main/LICENSE).
+the [Apache 2.0 license](https://github.com/karavel-io/platform/blob/main/LICENSE).
 
 [AWS Route53]: https://aws.amazon.com/route53/
 [Cloudflare]: https://cloudflare.com
