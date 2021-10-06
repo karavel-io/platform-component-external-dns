@@ -3,7 +3,7 @@ name: external-dns
 description: External DNS component for Karavel
 type: application
 version: 0.1.0-SNAPSHOT
-appVersion: 0.7.6
+appVersion: 0.10.0
 maintainers:
   - name: MatteoJoliveau
     email: matteo.joliveau@mikamai.com
@@ -11,7 +11,7 @@ maintainers:
 home: https://github.com/kubernetes-sigs/external-dns
 sources:
   - https://github.com/kubernetes-sigs/external-dns
-  - https://github.com/projectkaravel/platform
+  - https://github.com/karave-io/platform-component-external-dns
 
 annotations:
   karavel.io/dependencies: external-secrets
