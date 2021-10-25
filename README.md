@@ -2,7 +2,7 @@
 
 ![Component version](https://img.shields.io/badge/dynamic/yaml?color=blue&label=component+version&query=$.entries.external-dns[0].version&url=https%3A%2F%2Frepository.platform.karavel.io%2Funstable%2Findex.yaml&style=for-the-badge)
 [![External DNS version](https://img.shields.io/badge/dynamic/yaml?color=blue&label=external-dns+version&query=$.entries.external-dns[0].appVersion&url=https%3A%2F%2Frepository.platform.karavel.io%2Funstable%2Findex.yaml&style=for-the-badge)](https://github.com/kubernetes-sigs/external-dns)
-[Documentation](https://docs.karavel.io/components/external-dns)
+[Documentation](https://platform.karavel.io/components/external-dns)
 
 ## Overview
 
