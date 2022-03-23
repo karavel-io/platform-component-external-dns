@@ -3,7 +3,7 @@ name: external-dns
 description: External DNS component for Karavel
 type: application
 version: 1.0.0
-appVersion: 0.10.2
+appVersion: 0.11.0
 maintainers:
   - name: MatteoJoliveau
     email: matteo.joliveau@mikamai.com
