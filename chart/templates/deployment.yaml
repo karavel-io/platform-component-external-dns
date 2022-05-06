@@ -37,7 +37,7 @@ spec:
             - --domain-filter={{ . }} # will make ExternalDNS see only the hosted zones matching provided domain, omit to process all available hosted zones
             {{- end }}
 
-            {{- if eq .Values.provider "cloudflare" }}
+            {{- if eq $provider "cloudflare" }}
             - --provider=cloudflare
               {{- if .Values.cloudflare.proxied }}
             - --cloudflare-proxied
@@ -45,7 +45,7 @@ spec:
               {{- with .Values.cloudflare.zoneId }}
             - --zone-id-filter={{ . }}
               {{- end }}
-            {{- else if eq .Values.provider "route53" }}
+            {{- else if eq $provider "route53" }}
             - --provider=aws
               {{- with .Values.route53.zoneType }}
             - --aws-zone-type={{ . }}
@@ -53,22 +53,28 @@ spec:
               {{- with .Values.route53.zoneId }}
             - --txt-owner-id={{ . }}
               {{- end }}
-            {{- else if eq .Values.provider "pdns" }}
+            {{- else if eq $provider "pdns" }}
             - --provider=pdns
             {{- with .Values.pdns.apiUrl }}
+            - --pdns-server={{ . }}
             {{- end }}
-          {{- if eq .Values.provider "cloudflare" }}
+            - --pdns-api-key=$PDNS_API_KEY
+            {{- end }}
           env:
+            {{- if eq $provider "cloudflare" }}
             - name: CF_API_TOKEN
               valueFrom:
                 secretKeyRef:
                   name: {{ include "external-dns.name" . }}-cloudflare-secret
                   key: cf-api-token
-          {{- end}}
+          {{- else if eq $provider "pdns" }}
             - name: PDNS_API_KEY
               valueFrom:
-                {{}}
-          {{- if eq .Values.provider "pdns" }}
+                secretKeyRef:
+                  name: {{ include "external-dns.name" . }}-pdns-secret
+                  key: api-key
+          {{- else}}
+          {}
           {{- end }}
       securityContext:
         fsGroup: 65534 # For ExternalDNS to be able to read Kubernetes and AWS token files
