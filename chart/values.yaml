@@ -26,4 +26,3 @@ pdns:
       kind: ClusterSecretStore
     key: ""
     property: ""
-
