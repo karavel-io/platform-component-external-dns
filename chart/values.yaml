@@ -17,3 +17,13 @@ route53:
   zoneId: ""
   eksRole: ""
   iamRole: ""
+
+pdns:
+  apiUrl: ""
+  apiKeySecret:
+    store:
+      name: default
+      kind: ClusterSecretStore
+    key: ""
+    property: ""
+

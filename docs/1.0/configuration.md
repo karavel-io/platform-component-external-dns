@@ -11,7 +11,7 @@ component "external-dns" {
   domainFilter = ""
 
   # Upstream DNS provider to configure
-  # required, must be one of 'cloudflare', 'route53'
+  # required, must be one of 'cloudflare', 'route53', 'pdns'
   provider = ""
 
   cloudflare = {
@@ -21,10 +21,12 @@ component "external-dns" {
     # Restrict to domains in a specific Cloudflare Zone. Optional
     zoneId = ""
 
-    # ExternalSecret object reference to a secrets holding the Cloudflare API Token
+    # ExternalSecret object reference to a secret holding the Cloudflare API Token
     secret = {
-      # Must be one of the services configured in the External Secrets component
-      backend = "secretsManager"
+      store = {
+        name = "default"
+        kind = "ClusterSecretStore"
+      }
 
       # Backend-specific key for the target secret
       key = ""
@@ -43,6 +45,21 @@ component "external-dns" {
     eksRole = ""
     # Configure when deployed on AWS with KIAM
     iamRole = ""
+  }
+
+  pdns = {
+    apiUrl = ""
+    # ExternalSecret object reference to a secret holding the PowerDNS API key
+    apiKeySecret = {
+      store = {
+        name = "default"
+        kind = "ClusterSecretStore"
+      }
+      # Backend-specific key for the target secret
+      key = ""
+      # Optional nested property inside the upstream secret
+      property = ""
+    }
   }
 }
 ```

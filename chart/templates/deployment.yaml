@@ -53,6 +53,9 @@ spec:
               {{- with .Values.route53.zoneId }}
             - --txt-owner-id={{ . }}
               {{- end }}
+            {{- else if eq .Values.provider "pdns" }}
+            - --provider=pdns
+            {{- with .Values.pdns.apiUrl }}
             {{- end }}
           {{- if eq .Values.provider "cloudflare" }}
           env:
@@ -62,5 +65,10 @@ spec:
                   name: {{ include "external-dns.name" . }}-cloudflare-secret
                   key: cf-api-token
           {{- end}}
+            - name: PDNS_API_KEY
+              valueFrom:
+                {{}}
+          {{- if eq .Values.provider "pdns" }}
+          {{- end }}
       securityContext:
         fsGroup: 65534 # For ExternalDNS to be able to read Kubernetes and AWS token files
