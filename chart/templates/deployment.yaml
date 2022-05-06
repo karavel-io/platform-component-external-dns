@@ -58,7 +58,7 @@ spec:
             {{- with .Values.pdns.apiUrl }}
             - --pdns-server={{ . }}
             {{- end }}
-            - --pdns-api-key=$PDNS_API_KEY
+            - --pdns-api-key=$(PDNS_API_KEY)
             {{- end }}
           env:
             {{- if eq $provider "cloudflare" }}
