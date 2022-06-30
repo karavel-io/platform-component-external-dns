@@ -3,7 +3,7 @@
 ```hcl
 component "external-dns" {
   version = "0.2.0"
-  namespace = "external-dns"
+  namespace = "external-dns" # optional
 
   # Params default values
 
